@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>film</title>
+    <link rel="stylesheet" href="./love.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">  
+    <div class="valentines" id="valentines">
+      <div class="envelope"></div>
+      <div class="front"></div>
+      <div class="card">
+        <div class="text">ถึงหมาแวน<br><br>เป็นแฟนกันไหม</div>
+        <div class="heart"></div>
+      </div>
+      <div class="hearts">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        <div class="four"></div>
+        <div class="five"></div>
+      </div>
+    </div>
+    <div class="shadow"></div>
+  </div>
+
+
+  <audio id="bg-music" autoplay loop muted>
+    <source src="./Yours Ever.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button id="toggle-sound">🔈 เปิดเสียง</button>
+  
+  <script>
+$(document).ready(function () {
+  const audio = document.getElementById('bg-music');
+  const toggleSoundButton = $('#toggle-sound');
+
+  toggleSoundButton.on('click', function () {
+    if (audio.muted) {
+      audio.muted = false;
+      toggleSoundButton.text('🔇 ปิดเสียง');
+    } else {
+      audio.muted = true;
+      toggleSoundButton.text('🔈 เปิดเสียง');
+    }
+  });
+
+  $('.container').mouseenter(function () {
+      $('.card').stop().animate({
+          top: '-90px'
+      }, 'slow');
+  }).mouseleave(function () {
+      $('.card').stop().animate({
+          top: '5px'
+      }, 'slow');
+  });
+});
+
+  </script>
+
+
+</body>
+</html>
